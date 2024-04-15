@@ -60,15 +60,33 @@ class AnimeController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $anime = Anime::find($id);
+
+        return view("anime.edit", compact("anime"));
     }
+
 
     /**
      * Update the specified resource in storage.
      */
     public function update(Request $request, string $id)
     {
-        //
+        $anime = Anime::find($id);
+
+        $anime->nombre = $request->nombre;
+        $anime->descripcion = $request->descripcion;
+        $anime->personajes = $request->personajes;
+        $anime->fechapublicacion = $request->fechapublicacion;
+        $anime->capitulos = $request->capitulos;
+        $anime->estado = $request->estado;
+        $anime->calificacion = $request->calificacion;
+        $anime->autor = $request->autor;
+        $anime->estudioproduccion = $request->estudioproduccion;
+        $anime->enlace = $request->enlace;
+
+        $anime->save();
+
+        return redirect("/animes");
     }
 
     /**

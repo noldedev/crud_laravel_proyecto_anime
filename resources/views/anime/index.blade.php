@@ -36,6 +36,9 @@
                             <td>{{ $anime->autor }}</td>
                             <td>{{ $anime->estudioproduccion }}</td>
                             <td>{{ $anime->enlace }}</td>
+                            <td>
+                                <a href="{{ route('animes.edit', $anime) }}">Editar</a>
+                            </td>
                         </tr>
                     @endforeach
                 </tbody>
